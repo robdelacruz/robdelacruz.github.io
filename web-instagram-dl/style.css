@@ -1,0 +1,57 @@
+#src_url {
+	display: block;
+	width: 500px;
+}
+#btn_get {
+	width: 5em;
+}
+#target_contents {
+}
+#img_container {
+	display: block;
+/*	height: 500px;*/
+	width: 80%;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+form {
+	margin: 1em 2em;
+}
+form aside {
+	display: block;
+	margin: 0 0 0.3em;
+	font-style: italic;
+	font-size: smaller;
+}
+form input {
+	margin: 0.8em 0 0.4em;
+}
+#download_action {
+	display: none;
+	margin: 0.3em 0;
+}
+#results {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-family: 'Lucida Sans', sans-serif;
+	font-size: 1.5em;
+	margin: 0;
+	padding: 0;
+}
+h1 + aside {
+	font-family: 'Lucida Sans', sans-serif;
+	font-size: 0.8em;
+	margin: 0.2em;
+	padding: 0;
+	font-style: italic;
+}
+h2 {
+	font-family: 'Lucida Sans', sans-serif;
+	font-size: 1em;
+	margin: 1.5em 0 0;
+	padding: 0;
+}
+

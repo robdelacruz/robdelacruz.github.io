@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>web-instagram-dl</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form>
+		<h1>web-instagram-dl</h1>
+		<aside>Access instagram image</aside>
+		<h2>Enter url:</h2>
+		<aside>Ex. https://www.instagram.com/p/BDqKUeWMOtQ</aside>
+		<input id="src_url">
+		<input id="btn_get" type="submit" value="Get">
+		<input id="btn_clear" type="button" value="Clear">
+
+		<div id="results">
+			<h2>Result:</h2>
+			<textarea id="target_contents" cols="80" rows="2" disabled></textarea>
+			<a id="download_action" href="">Download Image</a>
+			<div id="img_container">
+				<img id="target_img">
+			</div>
+		</div>
+	</form>
+
+	<script src="main.js"></script>
+</body>
+</html>
+
