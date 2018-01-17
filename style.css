@@ -1,0 +1,46 @@
+body {
+    line-height: 130%;
+    color: #333;
+    font-size: 16px;
+    background-color: #eaf4ea;
+    /*background-color: #e0ffff;*/
+    /*background-color: #dcdcdc;*/
+    /*background-color: #f0f8ff;*/
+    /*background-color: #d0f0c0;*/
+
+    /*font-family: 'Verdana', sans-serif;*/
+    font-family: 'Forum', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+.main {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.node {
+    padding: 20px;
+    background-color: white;
+}
+
+.node img {
+    width: 100%;
+}
+
+.node nav {
+    font-size: 90%;
+}
+
+a {
+    color: grey;
+    margin-left: 4px;
+    margin-right: 4px;
+    line-height: 170%;
+    white-space: nowrap;
+}
+
+.related-links {
+    padding: 5px;
+    text-align: center;
+}
+
