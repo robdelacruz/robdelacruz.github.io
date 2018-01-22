@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>TED - Development</title>
     <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
 </head>
 <body>
     <section class="main">
@@ -15,16 +15,16 @@
         </nav>
         <h2>TED - Development</h2>
         <p>
-            Ted is in active development. It was programmed in Go language using the termbox-go text-based user interface library.
+            I needed a simple textbox control for another project so I decided to create one using the termbox-go textmode user interface library. The 'editview' control is the central component of the TED text editor.
         </p>
         <p>
-            I needed a simple textbox control for another project, and in the process of creating one, I realized that the control could be best tested as a proof of concept by embedding in a standalone text editor program. And that's how the development of Ted got started.
+            TED only has very basic functionality. Currently, you can select, copy and paste text, do search, and open and save UTF-8 text files. In the future, if I have time, I would like to add more sophisticated functionality such as (a) Undo/Redo, (b) Multi-File editing, (c) Split Windows. A graphical and web version would also be nice.
         </p>
         <p>
-            Future functionality to be added: (a) Undo/Redo, (b) Multi-File editing, (c) Split Windows. A graphical and web version would also be nice.
+        The complete source code is available on <a href="http://github.com/robdelacruz/ted">github</a>. The bulk of the functionality can be found in <a href="https://github.com/robdelacruz/ted/blob/master/buf.go">buf.go</a> (buffer) and <a href="https://github.com/robdelacruz/ted/blob/master/editview.go">editview.go</a> (edit control).
         </p>
         <p>
-        The complete source code is available on <a href="http://github.com/robdelacruz/ted">github</a>. The bulk of the functionality can be found in <a href="https://github.com/robdelacruz/ted/blob/master/buf.go">buf.go</a> (buffer) and <a href="https://github.com/robdelacruz/ted/blob/master/editview.go">editview.go</a> (edit control). Source code is under MIT License so it can be used freely in all commercial and non-commercial projects.
+        Source code is under MIT License so it can be used freely in all commercial and non-commercial projects.
         </p>
         <p>
             Ted can be used in schools as a resource for teaching basic data structures and how to develop a basic text editor from scratch.
@@ -35,8 +35,7 @@
         </p>
 
     </article>
-    <aside class="related-links">
-        <a href="#">rob</a>
+    <aside class="related-links nodelinks">
     </aside>
     </section>
 </body>

@@ -1,7 +1,7 @@
 body {
     line-height: 130%;
     color: #333;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #eaf4ea;
     /*background-color: #e0ffff;*/
     /*background-color: #dcdcdc;*/
@@ -9,8 +9,8 @@ body {
     /*background-color: #d0f0c0;*/
 
     /*font-family: 'Verdana', sans-serif;*/
-    font-family: 'Forum', sans-serif;
-    /*font-family: 'Open Sans', sans-serif;*/
+    /*font-family: 'Forum', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
 }
 
 .main {
@@ -33,6 +33,9 @@ body {
 
 a {
     color: grey;
+}
+
+.nodelinks a {
     margin-left: 4px;
     margin-right: 4px;
     line-height: 170%;
