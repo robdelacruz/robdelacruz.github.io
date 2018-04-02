@@ -102,6 +102,9 @@ const shipFramesTable = {
 const shipMissileFramesTable = {
     "default": shipMissileFrames,
 };
+const invMissileFramesTable = {
+    "default": invMissileFrames,
+};
 function NewInv(invType, x, y) {
     const spr = NewSprite(invFramesTable);
     if (invType == "A") {
@@ -133,6 +136,12 @@ function NewShipMissile(x, y) {
     spr.y = y;
     return spr;
 }
+function NewInvMissile(x, y) {
+    const spr = NewSprite(invMissileFramesTable);
+    spr.x = x;
+    spr.y = y;
+    return spr;
+}
 function fnInvLateralMovement(inv, msElapsed) {
     const dx = 2;
     if (msElapsed >= 400) {
@@ -141,4 +150,4 @@ function fnInvLateralMovement(inv, msElapsed) {
     }
     return false;
 }
-export { NewInv, NewShip, NewShipMissile, };
+export { NewInv, NewShip, NewShipMissile, NewInvMissile, };

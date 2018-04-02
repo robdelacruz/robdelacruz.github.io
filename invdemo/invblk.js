@@ -12,13 +12,11 @@ function NewInvBlk(nRows, nCols, pos) {
     const hInv = invTmplRect.h;
     let invblk = {};
     invblk.pos = pos;
-    invblk.nInv = nRows * nCols,
-        invblk.wInv = wInv,
-        invblk.hInv = hInv,
-        invblk.xInvSpace = xInvSpace,
-        invblk.yInvSpace = yInvSpace,
-        invblk.ActionsTable = {};
-    invblk.lastActionTime = {};
+    invblk.nInv = nRows * nCols;
+    invblk.wInv = wInv;
+    invblk.hInv = hInv;
+    invblk.xInvSpace = xInvSpace;
+    invblk.yInvSpace = yInvSpace;
     let rows = [];
     let yInv = pos.y;
     let invType = "A";
@@ -35,25 +33,6 @@ function NewInvBlk(nRows, nCols, pos) {
     }
     invblk.Rows = rows;
     return invblk;
-}
-function InvBlkAddAction(invblk, actionID, fn) {
-    invblk.ActionsTable[actionID] = fn;
-    const msNow = new Date().getTime();
-    invblk.lastActionTime[actionID] = msNow;
-}
-function InvBlkUpdate(invblk) {
-    const msNow = new Date().getTime();
-    for (const actionID in invblk.ActionsTable) {
-        let msLastTime = invblk.lastActionTime[actionID];
-        if (msLastTime == null) {
-            msLastTime = 0;
-        }
-        const msElapsed = msNow - msLastTime;
-        const actionFn = invblk.ActionsTable[actionID];
-        if (actionFn(invblk, msElapsed) == true) {
-            invblk.lastActionTime[actionID] = msNow;
-        }
-    }
 }
 function InvBlkMove(invblk, x, y) {
     invblk.pos.x = x;
@@ -105,6 +84,25 @@ function bottommostRow(rows) {
     }
     return -1;
 }
+// Return all invs that have surface exposure from the bottom.
+// (In other words, invs that aren't blocked by other invs down.)
+function bottomSurface(rows) {
+    let exposed = [];
+    const rowLen = rows[0].length;
+    for (let x = 0; x < rowLen; x++) {
+        for (let y = rows.length - 1; y >= 0; y--) {
+            const item = rows[y][x];
+            if (item != null) {
+                exposed.push(item);
+                break;
+            }
+        }
+    }
+    return exposed;
+}
+function InvBlkExposed(invblk) {
+    return bottomSurface(invblk.Rows);
+}
 // Return [top left, lower right] boundary positions.
 function InvBlkBounds(invblk) {
     const yTop = topmostRow(invblk.Rows);
@@ -140,4 +138,4 @@ function InvBlkBounds(invblk) {
     };
     return [startPos, endPos];
 }
-export { NewInvBlk, InvBlkUpdate, InvBlkAddAction, InvBlkMove, InvBlkBounds, };
+export { NewInvBlk, InvBlkMove, InvBlkExposed, InvBlkBounds, };

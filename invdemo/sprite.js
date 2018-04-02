@@ -23,6 +23,7 @@ SprCheckCollision(spr, spr2:Sprite):boolean
 SprCheckCollisionMultiple(spr, sprItems:Sprite[]):boolean
 
 */
+import { NewActionsTbl, ActionsTblAddAction, ActionsTblUpdate } from "./actionstbl.js";
 function NewSprite(framesTable, msPerFrame = 0) {
     let spr = {};
     spr.MsPerFrame = msPerFrame;
@@ -46,8 +47,7 @@ function NewSprite(framesTable, msPerFrame = 0) {
     spr.x = 0;
     spr.y = 0;
     spr.lastAnimateTime = new Date().getTime();
-    spr.ActionsTable = {};
-    spr.lastActionTime = {};
+    spr.actionsTbl = NewActionsTbl();
     spr.Props = {};
     return spr;
 }
@@ -100,23 +100,10 @@ function SprAnimate(spr) {
     }
 }
 function SprUpdate(spr) {
-    const msNow = new Date().getTime();
-    for (const actionID in spr.ActionsTable) {
-        let msLastTime = spr.lastActionTime[actionID];
-        if (msLastTime == null) {
-            msLastTime = 0;
-        }
-        const msElapsed = msNow - msLastTime;
-        const actionFn = spr.ActionsTable[actionID];
-        if (actionFn(spr, msElapsed) == true) {
-            spr.lastActionTime[actionID] = msNow;
-        }
-    }
+    ActionsTblUpdate(spr.actionsTbl);
 }
 function SprAddAction(spr, actionID, fn) {
-    spr.ActionsTable[actionID] = fn;
-    const msNow = new Date().getTime();
-    spr.lastActionTime[actionID] = msNow;
+    ActionsTblAddAction(spr.actionsTbl, actionID, fn);
 }
 function SprCheckCollision(spr, spr2) {
     const rect1 = SprRect(spr);
